@@ -21,3 +21,25 @@ class Deposit extends Transaction {
     return this.amount;
   }
 }
+
+$('input[name="transaction"]').on("click", function(){
+  var transac = $('input[name="transaction"]:checked').val();
+  alert(transac);
+});
+
+$(document).ready(function(){
+  $('input[name="transaction"]').on("change", function(){
+    var test = $(this).val();
+    $(".fromto").hide();
+    $(".acc").show();
+  });  
+});
+
+$(document).ready(function(){
+  $('input[value="transfer"]').on("change", function(){
+    var test1 = $(this).val();
+    $(".fromto").show();
+    $(".acc").hide();
+  });
+});
+
