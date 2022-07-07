@@ -49,11 +49,11 @@
 
         Category:
         <select id="category_select">
-          <option>Category</option>
+          <option name="category" id="category" >Category</option>
           <option>Grocery</option>
           <option>Gas</option>
           <option>Rent</option>
-          <option name="new">Add new</option>
+          <option id="new_option" value="add-new" name="new">Add new</option>
         </select>
 
         <input id="category_input" type="text" />
@@ -89,10 +89,10 @@
         </tr>
       </table>
     </main>
-    <script src="./js/helpers/Account.js"></script>
-    <script src="./js/helpers/Category.js"></script>
-    <script src="./js/helpers/Common.js"></script>
-    <script src="./js/helpers/Transaction.js"></script>
-    <script src="./js/index.js"></script>
+    <script type="module" src="./js/helpers/Account.js"></script>
+    <script type="module" src="./js/helpers/Category.js"></script>
+    <script type="module" src="./js/helpers/Common.js"></script>
+    <script type="module" src="./js/helpers/Transaction.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

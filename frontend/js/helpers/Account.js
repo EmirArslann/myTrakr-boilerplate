@@ -15,7 +15,7 @@ class Account {
  
 }
 let accounts = []
-const getAccounts = () =>{
+export function getAccounts() {
   $.ajax({
     method: 'get',
     url: 'http://localhost:3000/accounts',
@@ -27,7 +27,7 @@ const getAccounts = () =>{
 }
 
 
-const postAccounts = () =>{
+export function postAccounts(){
   const newAccount={
     username: $("#input").val(),
     transactions:[]
@@ -41,7 +41,7 @@ const postAccounts = () =>{
     let inpt = document.querySelector('#input').value;
     console.log(inpt);
     if(inpt === ""){
-          alert("You can't create a account without name")
+          alert("You can't create an account without name")
           return false
         }
     if(data.length>0){
@@ -74,3 +74,5 @@ const postAccounts = () =>{
     
   })
 }
+
+export default {getAccounts, postAccounts}
