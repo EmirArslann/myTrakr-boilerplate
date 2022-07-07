@@ -26,13 +26,16 @@
         <input type="text" id="input" />
         <button id="add-account">Add new account</button>
       </form>
-      <form action="">
-        New Transaction: Deposit
-        <input type="radio" name="transaction" value="deposit"/>
-        Withdraw
-        <input type="radio" name="transaction" value="withdraw" />
-        Transfer
-        <input type="radio" name="transaction" value="transfer"/>
+      <form action="" class="trfrom">
+        <div class="trtype">
+          New Transaction: Deposit
+          <input type="radio" name="transaction" value="deposit"/>
+          Withdraw
+          <input type="radio" name="transaction" value="withdraw" />
+          Transfer
+          <input type="radio" name="transaction" value="transfer"/> 
+        </div>
+
         <div class="acc">
          Account:
         <select id="select_account"></select> 
@@ -41,10 +44,10 @@
 
         <div class="fromto">
         From:
-        <select></select>
+        <select id="from"></select>
 
         To:
-        <select></select> 
+        <select id="to"></select> 
         </div>
 
         Category:
@@ -60,12 +63,12 @@
         <button id="category_button" type="button">Add new category</button>
 
         Description
-        <input type="text" />
+        <input type="text" id="desc"/>
 
         Amount:
-        <input type="number" />
+        <input type="number" id="am"/>
 
-        <button>Add transaction</button>
+        <button id="submit">Add transaction</button>
       </form>
 
       Account summary
