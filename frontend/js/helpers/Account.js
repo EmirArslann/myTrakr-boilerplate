@@ -69,7 +69,8 @@ export function postAccounts(){
             console.log(account.username.username);
             $('#select_account').append(`<option>${account.username.username}</option>`);
             $('#filter_account').append(`<option>${account.username.username}</option>`);
-            $('#username_summary').append(`<li>${account.username.username}</li>`);
+            $('#username_summary').append(`<li>username: ${account.username.username}</li>`);
+            $('#balance_summary').append(`<li>balance: ${account.balance}</li>`)
           })
     
   })
