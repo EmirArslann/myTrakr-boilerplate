@@ -40,6 +40,15 @@ class Deposit extends Transaction {
   }
 }
 
+
+export function validateTransactions(){
+  if($('input[id="am"]').val() <= 0 ){
+    alert("You can't make transactions with amount of 0(zero)")
+    return false
+    
+  }
+}
+
 $('input[name="transaction"]').on("click", function(){
   var transac = $('input[name="transaction"]:checked').val();
   alert(transac);
@@ -62,17 +71,7 @@ $(document).ready(function(){
   });
 });
 
-// $('#submit').click(function(e){
-//   e.preventDefault();
-//   var acc1 = $('input[id="select_account"]').val();
-//   var trtype = $('input[name="transaction"]:selected').val();
-//   var from1 = $('input[id="from"]').val();
-//   var to1 = $('input[id="to"]').val();
-//   var cat = $('input[id="category_select"]').val();
-//   var desc1 = $('input[id="desc"]').val();
-//   var am1 = $('input[id="am"]').val();
-//   console.log(desc1);
-// })
+
 
 
 let transactions = []
