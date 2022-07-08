@@ -30,6 +30,7 @@ export function validateCategory(){
   return true
 }
 
+
 export function getCategory () {
     $.ajax({
       method: 'get',

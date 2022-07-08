@@ -1,11 +1,14 @@
 import Category, {getCategory, postCategory, hideCategory, showCategory, validateCategory} from './helpers/Category.js'
 import{getAccounts, postAccounts} from './helpers/Account.js'
+import{getTransactions, postTransactions} from './helpers/Transaction.js'
+import transactions from '../../src/transactions.js';
 
 $(() => {
   //Start coding here!
   hideCategory()
   getAccounts()
   getCategory();
+  getTransactions();
   $("#add-account").click(function(event) {
     event.preventDefault();
     postAccounts()
@@ -23,6 +26,21 @@ $(() => {
     } else {
       hideCategory();
     }
+  })
+
+  $('#submit').click(function(e) {
+    e.preventDefault();
+    let transaction = {
+      accountId : $('#select_account').val(),
+      trtype : $('input[name="transaction"]:checked').val(),
+      accountIdFrom : $('#from').val(),
+      accountIdTo : $('#to').val(),
+      cat : $('#category_select').val(),
+      desc1 : $('input[id="desc"]').val(),
+      am1 : $('input[id="am"]').val()
+      
+    }
+    postTransactions(transaction);
   })
   
 

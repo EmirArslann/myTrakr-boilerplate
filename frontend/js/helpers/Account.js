@@ -23,6 +23,15 @@ export function getAccounts() {
   }).done((acc) => {
     accounts = [...acc]
     console.log('accounts', acc);
+    accounts.forEach(account => {
+              
+      console.log(account.username);
+      $('#select_account').append(`<option value=${account.id}>${account.username}</option>`);
+      $('#filter_account').append(`<option value=${account.id}>${account.username}</option>`);
+      $('#username_summary').append(`<li>username: ${account.username} balance: ${account.balance} </li>`);
+      $('#to').append(`<option value=${account.id}>${account.username}</option>`)
+      $('#from').append(`<option value=${account.id}>${account.username}</option>`)
+    });
   });
 }
 
@@ -62,15 +71,19 @@ export function postAccounts(){
           dataType: 'json',
           contentType:'application/json'
           }).done((acc) => {
-            const account = new Account(acc);
+            const account = new Account(acc.username);
             data = acc
             
             console.log('data ajax post', acc);
-            console.log(account.username.username);
-            $('#select_account').append(`<option>${account.username.username}</option>`);
-            $('#filter_account').append(`<option>${account.username.username}</option>`);
-            $('#username_summary').append(`<li>username: ${account.username.username}</li>`);
-            $('#balance_summary').append(`<li>balance: ${account.balance}</li>`)
+            
+              
+              console.log(account.username);
+              $('#select_account').append(`<option value=${account.id}>${account.username}</option>`);
+              $('#filter_account').append(`<option value=${account.id}>${account.username}</option>`);
+              $('#username_summary').append(`<li>username: ${account.username} balance: ${account.balance} </li>`);
+              $('#to').append(`<option value=${account.id}>${account.username}</option>`)
+              $('#from').append(`<option value=${account.id}>${account.username}</option>`)
+            
           })
     
   })
