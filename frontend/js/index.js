@@ -1,6 +1,6 @@
 import Category, {getCategory, postCategory, hideCategory, showCategory, validateCategory} from './helpers/Category.js'
 import{getAccounts, postAccounts} from './helpers/Account.js'
-import{getTransactions, postTransactions, validateTransactions} from './helpers/Transaction.js'
+import{getTransactions, postTransactions, validateTransactions, displayTable} from './helpers/Transaction.js'
 
 
 $(() => {
@@ -41,8 +41,9 @@ $(() => {
     }
      if(validateTransactions()){
       postTransactions(transaction);
+      displayTable();
     }
-    
+    console.log(transaction);
   })
   
 
