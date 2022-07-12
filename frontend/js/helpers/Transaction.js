@@ -71,7 +71,9 @@ $(document).ready(function(){
   });
 });
 
-
+export function displayTable(){
+  $('#idth').append(`<th>${('#select_account').val()}</th>`)
+}
 
 
 let transactions = []
