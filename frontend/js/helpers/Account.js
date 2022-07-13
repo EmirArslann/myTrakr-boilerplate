@@ -1,8 +1,9 @@
 
 class Account {
-  constructor(username) {
-    this.username = username;
+  constructor(acc) {
+    this.id = acc.id;
     this.transactions = [];
+    this.username = acc.username;
   }
 
   get balance() {
@@ -71,13 +72,15 @@ export function postAccounts(){
           dataType: 'json',
           contentType:'application/json'
           }).done((acc) => {
-            const account = new Account(acc.username);
+            const account = new Account(acc);
             data = acc
             
+
             console.log('data ajax post', acc);
             
               
-              console.log(account.username);
+              // console.log(account.username);
+              console.log("id: ", account.id);
               $('#select_account').append(`<option value=${account.id}>${account.username}</option>`);
               $('#filter_account').append(`<option value=${account.id}>${account.username}</option>`);
               $('#username_summary').append(`<li>username: ${account.username} balance: ${account.balance} </li>`);

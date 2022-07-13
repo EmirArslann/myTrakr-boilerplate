@@ -43,10 +43,32 @@ class Deposit extends Transaction {
 
 export function validateTransactions(){
   if($('input[id="am"]').val() <= 0 ){
-    alert("You can't make transactions with amount of 0(zero)")
+    alert("You can't make transactions with amount of 0(zero).")
     return false
     
   }
+  if($('#category_select').val() === "Category"){
+    alert("You can't make a transaction without a category.")
+    return false
+
+  }
+  if($('#select_account').val() === undefined){
+    alert("You must choose a account")
+    return false
+  }
+  if( $('input[name="transaction"]:checked').val() === undefined){
+    alert("You must choose a transaction type")
+    return false
+  }
+  if( $('input[name="transaction"]:checked').val() === "transfer"){
+    if($('#from').val() === $('#to').val()){
+      alert("You can't transfer thorugh same account")
+      return false
+
+    }
+
+  }
+  
 }
 
 $('input[name="transaction"]').on("click", function(){

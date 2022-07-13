@@ -5,8 +5,8 @@ import{getTransactions, postTransactions, validateTransactions} from './helpers/
 
 $(() => {
   //Start coding here!
-  hideCategory()
-  getAccounts()
+  hideCategory();
+  getAccounts();
   getCategory();
   getTransactions();
   $("#add-account").click(function(event) {
@@ -30,6 +30,7 @@ $(() => {
 
   $('#submit').click(function(e) {
     e.preventDefault();
+    
    let transaction = {
       accountId : $('#select_account').val(),
       trtype : $('input[name="transaction"]:checked').val(),
@@ -42,7 +43,7 @@ $(() => {
      if(validateTransactions()){
       postTransactions(transaction);
     }
-    
+    console.log(transaction)
   })
   
 

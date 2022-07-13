@@ -39,7 +39,7 @@ export function getCategory () {
       contentType:'application/json'
     }).done(data =>{
         categories = [...data]
-      console.log(data)
+      console.log("category", data)
     //   let category_input = document.querySelector('#category_input').value;
     //   console.log(category_input);
     //   if(category_input === ""){
