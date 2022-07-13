@@ -1,7 +1,8 @@
 class Transaction {
-  constructor(amount, account) {
+  constructor(amount, account, balance) {
     this.amount = amount;
     this.account = account;
+    this.balance = balance
   }
   
   isallowed(){
@@ -42,6 +43,7 @@ class Deposit extends Transaction {
 
 
 export function validateTransactions(){
+  
   if($('input[id="am"]').val() <= 0 ){
     alert("You can't make transactions with amount of 0(zero).")
     return false
@@ -66,8 +68,16 @@ export function validateTransactions(){
       return false
 
     }
-
-  }
+  }if ($('input[name="transaction"]:checked').val() === "transfer" || $('input[name="transaction"]:checked').val() === "withdraw" ){
+    if(account.balance < $('input[id="am"]').val()){
+      alert("You don't have enough money to make this transaction!!")
+      return false
+    }else{
+      alert("Your transaction on its way")
+    }
+  } 
+    
+  
   
 }
 
