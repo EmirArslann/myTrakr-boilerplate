@@ -47,7 +47,7 @@ export function postAccounts(){
     url: 'http://localhost:3000/accounts',
     dataType: 'json'
   }).done(data =>{
-    console.log(data)
+    console.log("post accounts", data)
     let inpt = document.querySelector('#input').value;
     console.log(inpt);
     if(inpt === ""){

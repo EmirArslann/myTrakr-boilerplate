@@ -31,7 +31,6 @@ $(() => {
 
   $('#submit').click(function(e) {
     e.preventDefault();
-    // displayTable();
    let transaction = {
       accountId : $('#select_account').val(),
       trtype : $('input[name="transaction"]:checked').val(),
@@ -57,6 +56,8 @@ $.ajax({
           console.log("selected",selectedAccount)
           if(validateTransactions(obj)){
             postTransactions(transaction);
+
+            
           }
         })
         

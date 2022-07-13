@@ -38,8 +38,7 @@ class Withdrawal extends Transaction {
 
 class Deposit extends Transaction {
   get value() {
-    return this.amount;
-  }
+    return this.amount}
 
 
 }
@@ -104,11 +103,21 @@ $(document).ready(function(){
   });
 });
 
-// export function displayTable(){
-//   console.log("hereee")
-//   $('#idth').append(`<th>${('#select_account').value}</th>`)
+function displayTable(transaction){
+  console.log("hereee")
+  $('.main-table').append(`
+  <tr>
+    <td>${transaction.accountId}</td>
+    <td>${transaction.username}</td>
+    <td>${transaction.trtype}</td>
+    <td>${transaction.cat}</td>
+    <td>${transaction.desc1}</td>
+    <td>${transaction.am1}</td>
+    <td>${transaction.accountIdFrom}</td>
+    <td>${transaction.accountIdTo}</td>
+  </tr>`)
 
-// }
+}
 
 
 let transactions = []
@@ -138,6 +147,10 @@ export function postTransactions(transaction){
     contentType: 'application/json',  
   }).done((data) => {
     console.log('data ajax post', data);
+    data.forEach(transaction => {
+      displayTable(transaction);
+    });
+    
   })
     
   
