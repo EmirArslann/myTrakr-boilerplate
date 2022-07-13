@@ -1,8 +1,9 @@
 class Transaction {
-  constructor(amount, account, balance) {
+  constructor(amount, account) {
     this.amount = amount;
     this.account = account;
-    this.balance = balance
+  
+    
   }
   
   isallowed(){
@@ -39,47 +40,47 @@ class Deposit extends Transaction {
   get value() {
     return this.amount;
   }
+
+
 }
 
 
-export function validateTransactions(){
-  
-  if($('input[id="am"]').val() <= 0 ){
-    alert("You can't make transactions with amount of 0(zero).")
-    return false
+export function validateTransactions(account){   
+      if($('input[id="am"]').val() <= 0 ){
+        alert("You can't make transactions with amount of 0(zero).")
+        return false
+        
+      }
+      if($('#category_select').val() === "Category"){
+        alert("You can't make a transaction without a category.")
+        return false
     
-  }
-  if($('#category_select').val() === "Category"){
-    alert("You can't make a transaction without a category.")
-    return false
-
-  }
-  if($('#select_account').val() === undefined){
-    alert("You must choose a account")
-    return false
-  }
-  if( $('input[name="transaction"]:checked').val() === undefined){
-    alert("You must choose a transaction type")
-    return false
-  }
-  if( $('input[name="transaction"]:checked').val() === "transfer"){
-    if($('#from').val() === $('#to').val()){
-      alert("You can't transfer thorugh same account")
-      return false
-
-    }
-  }if ($('input[name="transaction"]:checked').val() === "transfer" || $('input[name="transaction"]:checked').val() === "withdraw" ){
-    if(account.balance < $('input[id="am"]').val()){
-      alert("You don't have enough money to make this transaction!!")
-      return false
-    }else{
-      alert("Your transaction on its way")
-    }
-  } 
+      }
+      if($('#select_account').val() === undefined){
+        alert("You must choose a account")
+        return false
+      }
+      if( $('input[name="transaction"]:checked').val() === undefined){
+        alert("You must choose a transaction type")
+        return false
+      }
+      if( $('input[name="transaction"]:checked').val() === "transfer"){
+        if($('#from').val() === $('#to').val()){
+          alert("You can't transfer thorugh same account")
+          return false
     
-  
-  
-}
+        }
+      }if ($('input[name="transaction"]:checked').val() === "transfer" || $('input[name="transaction"]:checked').val() === "withdraw" ){
+        if(account.balance < $('input[id="am"]').val()){
+          alert("You don't have enough money to make this transaction!!")
+          return false
+        }else{
+          alert("Your transaction on its way")
+        }
+      }
+      return true
+  }
+
 
 $('input[name="transaction"]').on("click", function(){
   var transac = $('input[name="transaction"]:checked').val();
@@ -103,9 +104,11 @@ $(document).ready(function(){
   });
 });
 
-export function displayTable(){
-  $('#idth').append(`<th>${('#select_account').val()}</th>`)
-}
+// export function displayTable(){
+//   console.log("hereee")
+//   $('#idth').append(`<th>${('#select_account').value}</th>`)
+
+// }
 
 
 let transactions = []

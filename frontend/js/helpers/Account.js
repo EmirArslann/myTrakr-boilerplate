@@ -1,8 +1,8 @@
 
-class Account {
+export class Account {
   constructor(acc) {
     this.id = acc.id;
-    this.transactions = [];
+    this.transactions = acc.transactions;
     this.username = acc.username;
   }
 
@@ -92,4 +92,4 @@ export function postAccounts(){
   })
 }
 
-export default {getAccounts, postAccounts}
+export default {getAccounts, postAccounts, Account}

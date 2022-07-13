@@ -1,6 +1,6 @@
 import Category, {getCategory, postCategory, hideCategory, showCategory, validateCategory} from './helpers/Category.js'
-import{getAccounts, postAccounts} from './helpers/Account.js'
-import{getTransactions, postTransactions, validateTransactions, displayTable} from './helpers/Transaction.js'
+import{getAccounts, postAccounts, Account} from './helpers/Account.js'
+import{getTransactions, postTransactions, validateTransactions} from './helpers/Transaction.js'
 
 
 $(() => {
@@ -9,6 +9,7 @@ $(() => {
   getAccounts();
   getCategory();
   getTransactions();
+
   $("#add-account").click(function(event) {
     event.preventDefault();
     postAccounts()
@@ -30,7 +31,7 @@ $(() => {
 
   $('#submit').click(function(e) {
     e.preventDefault();
-    
+    // displayTable();
    let transaction = {
       accountId : $('#select_account').val(),
       trtype : $('input[name="transaction"]:checked').val(),
@@ -40,12 +41,32 @@ $(() => {
       desc1 : $('input[id="desc"]').val(),
       am1 : $('input[id="am"]').val()
     }
-     if(validateTransactions()){
-      postTransactions(transaction);
-      displayTable();
-    }
+$.ajax({
+        method: 'get',
+        url: 'http://localhost:3000/accounts',
+        dataType: 'json'
+      }).done((acc) => {
+        console.log('accounts', acc);
+          const selectedAccount = acc.filter( (a) => {
+            return a.id == $('#select_account').val()
+            
+    
+          
+          })
+          let obj = new Account(selectedAccount[0]) 
+          console.log("selected",selectedAccount)
+          if(validateTransactions(obj)){
+            postTransactions(transaction);
+          }
+        })
+        
+    
+    
     console.log(transaction);
-  })
+  
+})
+
+
   
 
 
