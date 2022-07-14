@@ -106,15 +106,15 @@ $(document).ready(function(){
 function displayTable(transaction){
   console.log("hereee")
   $('.main-table').append(`
-  <tr>
-    <td>${transaction.accountId}</td>
-    <td>${transaction.username}</td>
-    <td>${transaction.trtype}</td>
-    <td>${transaction.cat}</td>
-    <td>${transaction.desc1}</td>
-    <td>${transaction.am1}</td>
-    <td>${transaction.accountIdFrom}</td>
-    <td>${transaction.accountIdTo}</td>
+  <tr class="table">
+    <td >${transaction.accountId}</td>
+    <td >${transaction.username}</td>
+    <td >${transaction.trtype}</td>
+    <td >${transaction.cat}</td>
+    <td >${transaction.desc1}</td>
+    <td >${transaction.am1}</td>
+    <td >${transaction.accountIdFrom}</td>
+    <td >${transaction.accountIdTo}</td>
   </tr>`)
 
 }
