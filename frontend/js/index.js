@@ -33,12 +33,13 @@ $(() => {
     e.preventDefault();
    let transaction = {
       accountId : $('#select_account').val(),
+      userName : $('#input').val(),
       trtype : $('input[name="transaction"]:checked').val(),
       accountIdFrom : $('#from').val(),
       accountIdTo : $('#to').val(),
       cat : $('#category_select').val(),
       desc1 : $('input[id="desc"]').val(),
-      am1 : $('input[id="am"]').val()
+      am1 : Number($('input[id="am"]').val())
     }
 $.ajax({
         method: 'get',

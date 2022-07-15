@@ -1,7 +1,8 @@
 class Transaction {
-  constructor(amount, account) {
+  constructor(amount, account, username) {
     this.amount = amount;
     this.account = account;
+    this.username = username
   
     
   }
@@ -108,7 +109,7 @@ function displayTable(transaction){
   $('.main-table').append(`
   <tr class="table">
     <td >${transaction.accountId}</td>
-    <td >${('#select_account').val()}</td>
+    <td >${transaction.userName}</td>
     <td >${transaction.trtype}</td>
     <td >${transaction.cat}</td>
     <td >${transaction.desc1}</td>
@@ -121,10 +122,10 @@ function displayTable(transaction){
 
 function getBalance(transaction){
   if( $('input[name="transaction"]:checked').val() === "deposit"){
-    let balance = transaction.amount + $('input[id="am"]').val()
+    console.log(transaction);
+    let balance =  Number($(`#${transaction.accountId}`).text()) + Number($('input[id="am"]').val())
     console.log(balance)
     return balance 
-
   }
   alert("no")
   return false
@@ -160,7 +161,7 @@ export function postTransactions(transaction){
     console.log('data ajax post', data);
     data.forEach(transaction => {
       displayTable(transaction);
-      getBalance(transaction)
+      $(`#${transaction.accountId}`).text(getBalance(transaction))
     });
     
   })

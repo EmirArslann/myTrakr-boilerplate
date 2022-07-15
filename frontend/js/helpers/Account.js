@@ -29,7 +29,7 @@ export function getAccounts() {
       console.log(account.username);
       $('#select_account').append(`<option value=${account.id}>${account.username}</option>`);
       $('#filter_account').append(`<option value=${account.id}>${account.username}</option>`);
-      $('#username_summary').append(`<li>username: ${account.username} balance: ${account.balance} </li>`);
+      $('#username_summary').append(`<li>username: ${account.username} balance: <span id=${account.id}>${account.balance}</span> </li>`);
       $('#to').append(`<option value=${account.id}>${account.username}</option>`)
       $('#from').append(`<option value=${account.id}>${account.username}</option>`)
     });
@@ -83,7 +83,7 @@ export function postAccounts(){
               console.log("id: ", account.id);
               $('#select_account').append(`<option value=${account.id}>${account.username}</option>`);
               $('#filter_account').append(`<option value=${account.id}>${account.username}</option>`);
-              $('#username_summary').append(`<li>username: ${account.username} balance: ${account.balance} </li>`);
+              $('#username_summary').append(`<li>username: ${account.username} balance: <span id=${account.id}>${account.balance}</span> </li>`);
               $('#to').append(`<option value=${account.id}>${account.username}</option>`)
               $('#from').append(`<option value=${account.id}>${account.username}</option>`)
             
