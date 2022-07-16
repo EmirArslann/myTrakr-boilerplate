@@ -1,6 +1,6 @@
 import Category, {getCategory, postCategory, hideCategory, showCategory, validateCategory} from './helpers/Category.js'
 import{getAccounts, postAccounts, Account} from './helpers/Account.js'
-import{getTransactions, postTransactions, validateTransactions} from './helpers/Transaction.js'
+import{getTransactions, postTransactions, validateTransactions, displayTable} from './helpers/Transaction.js'
 
 
 $(() => {
@@ -28,6 +28,22 @@ $(() => {
       hideCategory();
     }
   })
+
+  // $('#filter_account').change(function(e){
+  //   e.preventDefault();
+  //   let filter =  $('#filter_account').val()
+  //   console.log(filter)
+  //   if(filter === "all"){
+  //     displayTable(transaction)
+  //   }
+  //   // }if(filter === transaction.userName){
+  //   //   displayTable(transaction.userName)
+  //   //   console.log(transaction.username)
+
+  //   // }
+
+  
+  // });
 
   $('#submit').click(function(e) {
     e.preventDefault();
@@ -57,10 +73,24 @@ $.ajax({
           console.log("selected",selectedAccount)
           if(validateTransactions(obj)){
             postTransactions(transaction);
+            $('#filter_account').change(function(event){
+              event.preventDefault();
+              let filter =  $('#filter_account').val()
+              console.log(filter)
+              if(filter === "all"){
+                displayTable(transaction)
+              }if(filter === acc.userId){
+                displayTable(transaction.accountId)
+                console.log(acc.userId)
+              }else{
+                displayTable(transaction)
+              }
 
             
-          }
-        })
+            });
+           
+          };
+        });
         
     
     

@@ -104,7 +104,7 @@ $(document).ready(function(){
   });
 });
 
-function displayTable(transaction){
+export function displayTable(transaction,){
   console.log("hereee")
   $('.main-table').append(`
   <tr class="table">
@@ -120,6 +120,17 @@ function displayTable(transaction){
 
 }
 
+// function filterTransaction(transaction){
+//   let filter =  $('#filter_account').val()
+//   if(filter === transaction.userName){
+//     console.log(transaction.userName);
+    
+  
+
+//   }
+
+// }
+
 function getBalance(transaction){
   if( $('input[name="transaction"]:checked').val() === "deposit"){
     console.log(transaction);
@@ -127,7 +138,7 @@ function getBalance(transaction){
     console.log(balance)
     return balance 
   }
-  alert("no")
+  alert("Your deposit didnt't go through")
   return false
 
 }
