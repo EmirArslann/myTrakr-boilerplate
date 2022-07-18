@@ -49,7 +49,7 @@ $(() => {
     e.preventDefault();
    let transaction = {
       accountId : $('#select_account').val(),
-      userName : $('#input').val(),
+      userName : $('#select_account option:checked').text(),
       trtype : $('input[name="transaction"]:checked').val(),
       accountIdFrom : $('#from').val(),
       accountIdTo : $('#to').val(),

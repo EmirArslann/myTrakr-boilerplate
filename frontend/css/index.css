@@ -7,6 +7,10 @@ h1{
     text-align: center;
     margin: 0;
     color: white;
+    background-color: black;
+    backdrop-filter: blur(4px);
+    opacity: 0.8;
+
 }
 
 h4 {

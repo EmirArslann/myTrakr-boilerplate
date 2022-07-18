@@ -104,7 +104,7 @@ $(document).ready(function(){
   });
 });
 
-export function displayTable(transaction,){
+export function displayTable(transaction){
   console.log("hereee")
   $('.main-table').append(`
   <tr class="table">
@@ -124,11 +124,7 @@ export function displayTable(transaction,){
 //   let filter =  $('#filter_account').val()
 //   if(filter === transaction.userName){
 //     console.log(transaction.userName);
-    
-  
-
 //   }
-
 // }
 
 function getBalance(transaction){
