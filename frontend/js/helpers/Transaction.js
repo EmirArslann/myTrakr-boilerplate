@@ -144,7 +144,7 @@ let transactions = []
 export function getTransactions(){
   $.ajax({
     method: "get",
-    url: 'http://localhost:3000/transactions',
+    url: 'https://my-trakr.herokuapp.com/',
     datatype: 'json'
   }).done((data, ) => {
     transactions = [...data]
@@ -161,7 +161,7 @@ export function postTransactions(transaction){
     data: JSON.stringify({
       newTransaction
     }),
-    url: 'http://localhost:3000/transaction',
+    url: 'https://my-trakr.herokuapp.com/',
     dataType: 'json',
     contentType: 'application/json',  
   }).done((data) => {

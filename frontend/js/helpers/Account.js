@@ -19,7 +19,7 @@ let accounts = []
 export function getAccounts() {
   $.ajax({
     method: 'get',
-    url: 'http://localhost:3000/accounts',
+    url: 'https://my-trakr.herokuapp.com/',
     dataType: 'json'
   }).done((acc) => {
     accounts = [...acc]
@@ -44,7 +44,7 @@ export function postAccounts(){
   }
   $.ajax({
     method: 'get',
-    url: 'http://localhost:3000/accounts',
+    url: 'https://my-trakr.herokuapp.com/',
     dataType: 'json'
   }).done(data =>{
     console.log("post accounts", data)
