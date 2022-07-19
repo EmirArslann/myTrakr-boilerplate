@@ -124,7 +124,10 @@ export function displayTable(transaction){
 //   let filter =  $('#filter_account').val()
 //   if(filter === transaction.userName){
 //     console.log(transaction.userName);
+    
+  
 //   }
+
 // }
 
 function getBalance(transaction){
@@ -144,7 +147,7 @@ let transactions = []
 export function getTransactions(){
   $.ajax({
     method: "get",
-    url: 'https://my-trakr.herokuapp.com/',
+    url: 'https://my-trakr.herokuapp.com/transactions',
     datatype: 'json'
   }).done((data, ) => {
     transactions = [...data]
@@ -161,7 +164,7 @@ export function postTransactions(transaction){
     data: JSON.stringify({
       newTransaction
     }),
-    url: 'https://my-trakr.herokuapp.com/',
+    url: 'https://my-trakr.herokuapp.com/transaction',
     dataType: 'json',
     contentType: 'application/json',  
   }).done((data) => {

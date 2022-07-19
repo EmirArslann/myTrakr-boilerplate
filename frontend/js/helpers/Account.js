@@ -44,7 +44,7 @@ export function postAccounts(){
   }
   $.ajax({
     method: 'get',
-    url: 'https://my-trakr.herokuapp.com/',
+    url: 'https://my-trakr.herokuapp.com/accounts',
     dataType: 'json'
   }).done(data =>{
     console.log("post accounts", data)
@@ -68,7 +68,7 @@ export function postAccounts(){
           data: JSON.stringify( {
             newAccount
           }),
-          url: 'http://localhost:3000/accounts',
+          url: 'https://my-trakr.herokuapp.com/accounts',
           dataType: 'json',
           contentType:'application/json'
           }).done((acc) => {
